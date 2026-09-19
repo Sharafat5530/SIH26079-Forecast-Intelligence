@@ -1,0 +1,121 @@
+{
+  "project": "SIH26079 Forecast Bust Detection PoC",
+  "model_type": "XGBoost Binary Classifier",
+  "model_file": "E:\\weather\\models\\xgb.pkl",
+  "native_model_file": "E:\\weather\\models\\xgb_model.json",
+  "shap_explainer_file": "E:\\weather\\artifacts\\shap_explainer.pkl",
+  "feature_columns": [
+    "latitude",
+    "longitude",
+    "lead_time_hours",
+    "forecast_rainfall_mm",
+    "temperature_avg_c",
+    "temperature_min_c",
+    "temperature_max_c",
+    "humidity_pct",
+    "pressure_hpa",
+    "wind_speed_kmh",
+    "cape_proxy_index",
+    "surface_wind_change_proxy_kmh",
+    "month_sin",
+    "month_cos",
+    "day_of_year_sin",
+    "day_of_year_cos"
+  ],
+  "target_column": "is_bust",
+  "decision_threshold": 0.28,
+  "bust_definition": "abs(forecast_rainfall_mm - actual_rainfall_mm) > 20 mm",
+  "negative_sample_fraction": 0.2,
+  "negative_sample_weight": 5.0,
+  "train_rows": 961294,
+  "validation_rows": 205992,
+  "test_rows": 205992,
+  "best_iteration": 1199,
+  "best_score": 0.7862838989268324,
+  "feature_importance": {
+    "forecast_rainfall_mm": 0.3515585660934448,
+    "temperature_min_c": 0.1201808974146843,
+    "day_of_year_sin": 0.08488034456968307,
+    "day_of_year_cos": 0.06602656841278076,
+    "month_sin": 0.05879982188344002,
+    "humidity_pct": 0.03433666005730629,
+    "pressure_hpa": 0.03430843725800514,
+    "latitude": 0.032420095056295395,
+    "cape_proxy_index": 0.031446199864149094,
+    "temperature_max_c": 0.03097829408943653,
+    "month_cos": 0.029325658455491066,
+    "temperature_avg_c": 0.02856774814426899,
+    "wind_speed_kmh": 0.027989789843559265,
+    "longitude": 0.02683539316058159,
+    "surface_wind_change_proxy_kmh": 0.02223079837858677,
+    "lead_time_hours": 0.020114745944738388
+  },
+  "missing_value_statistics": {
+    "latitude": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "longitude": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "lead_time_hours": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "forecast_rainfall_mm": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "temperature_avg_c": {
+      "missing_count": 1075728,
+      "missing_percentage": 78.3329
+    },
+    "temperature_min_c": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "temperature_max_c": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "humidity_pct": {
+      "missing_count": 297550,
+      "missing_percentage": 21.6671
+    },
+    "pressure_hpa": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "wind_speed_kmh": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "cape_proxy_index": {
+      "missing_count": 297550,
+      "missing_percentage": 21.6671
+    },
+    "surface_wind_change_proxy_kmh": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "month_sin": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "month_cos": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "day_of_year_sin": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    },
+    "day_of_year_cos": {
+      "missing_count": 0,
+      "missing_percentage": 0.0
+    }
+  },
+  "training_seconds": 958.95,
+  "dataset_disclosure": "Forecast values are derived from a persistence baseline and are not operational GFS/NWP forecasts. CAPE and wind shear fields are proxy variables. This model is a PoC."
+}

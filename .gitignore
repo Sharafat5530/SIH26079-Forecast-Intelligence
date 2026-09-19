@@ -1,0 +1,47 @@
+# Large raw datasets
+data/raw/*
+!data/raw/.gitkeep
+
+# Previous/intermediate datasets
+data/processed/*previous*
+*.zip
+
+# Runtime databases
+artifacts/*.db
+artifacts/*.db-shm
+artifacts/*.db-wal
+
+# Logs
+logs/*
+*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local backups
+backups/
+backend/*before*.py
+frontend/*before*.py
+weather_checkpoint_*/
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Environment variables
+.env
+.env.*

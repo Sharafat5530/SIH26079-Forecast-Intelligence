@@ -1,0 +1,61 @@
+{
+  "optimized_threshold_test_metrics": {
+    "decision_threshold": 0.28,
+    "accuracy": 0.9597147747845519,
+    "balanced_accuracy": 0.8548519495239957,
+    "precision": 0.689736855656831,
+    "recall": 0.7336096251802896,
+    "f1_score": 0.7109970804211271,
+    "roc_auc": 0.9737807650248289,
+    "pr_auc": 0.780930815424505,
+    "confusion_matrix_weighted": [
+      [
+        738020.0,
+        18075.0
+      ],
+      [
+        14591.0,
+        40182.0
+      ]
+    ],
+    "evaluated_rows": 205992,
+    "actual_bust_rows_in_sample": 54773,
+    "predicted_bust_rows_in_sample": 43797
+  },
+  "default_threshold_test_metrics": {
+    "decision_threshold": 0.5,
+    "accuracy": 0.9619716156020462,
+    "balanced_accuracy": 0.7819309674174362,
+    "precision": 0.8075391217205848,
+    "recall": 0.5737680974202618,
+    "f1_score": 0.6708720247625147,
+    "roc_auc": 0.9737807650248289,
+    "pr_auc": 0.780930815424505,
+    "confusion_matrix_weighted": [
+      [
+        748605.0,
+        7490.0
+      ],
+      [
+        23346.0,
+        31427.0
+      ]
+    ],
+    "evaluated_rows": 205992,
+    "actual_bust_rows_in_sample": 54773,
+    "predicted_bust_rows_in_sample": 32925
+  },
+  "validation_best_f1": 0.716467,
+  "decision_threshold": 0.28,
+  "metrics_are_population_weighted": true,
+  "confusion_matrix_order": [
+    [
+      "true_negative",
+      "false_positive"
+    ],
+    [
+      "false_negative",
+      "true_positive"
+    ]
+  ]
+}

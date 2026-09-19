@@ -1,0 +1,17 @@
+﻿pandas>=2.3
+numpy>=2.3
+pyarrow>=21.0
+scikit-learn>=1.7
+xgboost>=3.0
+shap>=0.48
+joblib>=1.5
+fastapi>=0.116
+uvicorn[standard]>=0.35
+pydantic>=2.11
+streamlit>=1.48
+pydeck>=0.9
+plotly>=6.3
+requests>=2.32
+python-multipart>=0.0.20
+pytest>=8.4
+httpx>=0.28
