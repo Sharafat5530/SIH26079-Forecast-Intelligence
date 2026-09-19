@@ -81,6 +81,48 @@ if (-not $BackendReady) {
 }
 
 Write-Host "Backend is healthy." -ForegroundColor Green
+Write-Host "Checking demonstration records..." -ForegroundColor Yellow
+
+try {
+    $HistoryResponse = Invoke-RestMethod `
+        -Uri "$BackendUrl/predictions/history?limit=1" `
+        -Method Get `
+        -TimeoutSec 10
+
+    $HistoryCount = [int]$HistoryResponse.count
+
+    if ($HistoryCount -eq 0) {
+        Write-Host(
+            "Prediction history is empty. " +
+            "Generating model-based demo records..."
+        ) -ForegroundColor Yellow
+
+        python -m backend.seed_demo
+
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host(
+                "Demo records could not be generated. " +
+                "The platform will continue without them."
+            ) -ForegroundColor Yellow
+        }
+        else {
+            Write-Host(
+                "Demonstration records generated successfully."
+            ) -ForegroundColor Green
+        }
+    }
+    else {
+        Write-Host(
+            "Existing prediction records found: $HistoryCount"
+        ) -ForegroundColor Green
+    }
+}
+catch {
+    Write-Host(
+        "Prediction history could not be checked. " +
+        "Continuing platform startup."
+    ) -ForegroundColor Yellow
+}
 
 Write-Host "[3/4] Starting Streamlit frontend..." -ForegroundColor Yellow
 
