@@ -1,4 +1,4 @@
-﻿"""
+"""
 Interactive Forecast Bust prediction and What-If Simulator.
 
 The form connects:
@@ -223,7 +223,7 @@ def render_live_context(
     first.metric(
         "Live Temperature",
         (
-            f"{float(weather['temperature_c']):.1f} Â°C"
+            f"{float(weather['temperature_c']):.1f} C"
             if weather.get("temperature_c") is not None
             else "N/A"
         ),
@@ -600,7 +600,7 @@ def render_prediction_form() -> None:
 
         with temp_col_1:
             st.number_input(
-                "Average temperature (Â°C)",
+                "Average temperature (C)",
                 min_value=-20.0,
                 max_value=60.0,
                 step=0.5,
@@ -609,7 +609,7 @@ def render_prediction_form() -> None:
 
         with temp_col_2:
             st.number_input(
-                "Minimum temperature (Â°C)",
+                "Minimum temperature (C)",
                 min_value=-30.0,
                 max_value=55.0,
                 step=0.5,
@@ -618,7 +618,7 @@ def render_prediction_form() -> None:
 
         with temp_col_3:
             st.number_input(
-                "Maximum temperature (Â°C)",
+                "Maximum temperature (C)",
                 min_value=-20.0,
                 max_value=65.0,
                 step=0.5,
@@ -749,7 +749,7 @@ def render_prediction_form() -> None:
     ):
         st.error(
             "Temperature order invalid. Required order: "
-            "minimum â‰¤ average â‰¤ maximum."
+            "minimum <= average <= maximum."
         )
         return
 

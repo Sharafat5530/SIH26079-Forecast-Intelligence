@@ -1,4 +1,4 @@
-﻿from typing import Any
+from typing import Any
 
 import requests
 import streamlit as st
@@ -104,9 +104,9 @@ def render_system_status() -> None:
         )
 
     if model_loaded:
-        st.success("Model loaded", icon="âœ…")
+        st.success("Model loaded")
     else:
-        st.warning("Model not loaded", icon="âš ï¸")
+        st.warning("Model not loaded")
 
     model_version = data.get(
         "model_version",

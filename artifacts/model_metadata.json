@@ -116,6 +116,6 @@
       "missing_percentage": 0.0
     }
   },
-  "training_seconds": 958.95,
+  "training_seconds": 971.27,
   "dataset_disclosure": "Forecast values are derived from a persistence baseline and are not operational GFS/NWP forecasts. CAPE and wind shear fields are proxy variables. This model is a PoC."
 }

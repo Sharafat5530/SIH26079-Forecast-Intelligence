@@ -1,4 +1,4 @@
-﻿import calendar
+import calendar
 
 import plotly.express as px
 import pydeck as pdk
@@ -41,7 +41,7 @@ from frontend.data_service import (
 
 st.set_page_config(
     page_title=APP_TITLE,
-    page_icon="ðŸŒ§ï¸",
+    page_icon=":material/cloud:",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -60,6 +60,30 @@ def load_css() -> None:
         unsafe_allow_html=True,
     )
 
+def hide_streamlit_heading_links() -> None:
+    """Hide Streamlit heading permalink icons."""
+
+    st.markdown(
+        """
+        <style>
+        [data-testid="stHeaderActionElements"] {
+            display: none !important;
+        }
+
+        a.header-anchor {
+            display: none !important;
+        }
+
+        h1 a,
+        h2 a,
+        h3 a,
+        h4 a {
+            display: none !important;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 def activate_cursor_glow() -> None:
     """Create a soft light effect that follows the cursor."""
 
@@ -610,7 +634,7 @@ def render_risk_map(
     selected_lead: int,
 ) -> None:
     st.markdown(
-        f"### Geographic Risk Map â€” "
+        f"### Geographic Risk Map - "
         f"{selected_lead} Hour Forecast"
     )
 
@@ -753,7 +777,7 @@ def render_sidebar(
 
         st.write(
             "Lead-time range: "
-            f"`{summary['minimum_lead']}â€“"
+            f"`{summary['minimum_lead']}-"
             f"{summary['maximum_lead']} hours`"
         )
 
